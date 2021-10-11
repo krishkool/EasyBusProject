@@ -125,18 +125,19 @@ def bookTicket(request):
             unit_price = decimal.Decimal(dataCheck.price)
             
             if dataCheck is not None:
-                if sel_seat_val < dataCheck.remaining_seats:
-                    
-                    new_avail = rem_seat - sel_seat_val
-                    dataCheck.remaining_seats = new_avail
-                    tot_amt = unit_price * sel_seat_val
-                    dataCheck.save()
-                    return render(request, 'ticketinvoice.html', {'dataCheck': dataCheck})
-                else:
+                try:
+                    if sel_seat_val < dataCheck.remaining_seats:
+                        
+                        new_avail = rem_seat - sel_seat_val
+                        dataCheck.remaining_seats = new_avail
+                        tot_amt = unit_price * sel_seat_val
+                        dataCheck.save()
+                        return render(request, 'ticketinvoice.html', {'dataCheck': dataCheck, 'payable': tot_amt, 'seats': sel_seat_val })
+                except Exception as e:
                     return render(request, 'bookingpage.html', {'errorbook': 'Remaining Seats are not Enough to Book...'})
 
     except Exception as e:
         print(e)
-        return render(request, 'bookingpage.html', {'errorbook': 'Something Went Wrong'})
+        
 
 

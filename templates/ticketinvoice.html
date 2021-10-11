@@ -16,23 +16,25 @@
                                 <th>Bus Name</th>
                                 <th>From</th>
                                 <th>To</th>
-                                
+                                <th>No. of Seat(s)</th>
+                                <th>Ticket Amount</th>
                                 <th>Date</th>
                                 <th>Time</th>
                                 
                             </tr>
-                            {% for i in dataCheck %}
+                            
                             <tr>
-                                <td>{{i.id}}</td>
-                                <td>{{i.bus_name}}</td>
-                                <td>{{i.source}}</td>
-                                <td>{{i.destination}}</td>
-                                
-                                <td>{{i.date}}</td>
-                                <td>{{i.time}}</td>
+                                <td>{{dataCheck.id}}</td>
+                                <td>{{dataCheck.bus_name}}</td>
+                                <td>{{dataCheck.source}}</td>
+                                <td>{{dataCheck.destination}}</td>
+                                <td>{{seats}}</td>
+                                <td>{{payable}}</td>
+                                <td>{{dataCheck.date}}</td>
+                                <td>{{dataCheck.time}}</td>
                             </tr>
                             
-                        {% endfor %}
+                        
                         
                     </table>
 
