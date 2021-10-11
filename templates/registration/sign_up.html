@@ -1,0 +1,18 @@
+{% include 'homepage.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="alert alert-danger"><h4>REGISTER</h4></div>
+    <div class="form-class">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-success" value="REGISTER" style="margin: 0 0 0 1%;">
+            <span><a href = "{% url 'login' %}" class="btn btn-primary">LOGIN</a></span>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

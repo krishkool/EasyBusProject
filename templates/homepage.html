@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<nav class="navbar">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="{% static 'images/logo2.png' %}" style="width: 250px; height: 125px;" class="logo" alt="logo"><span>EASY BUS</span>
+    </a>
+      <ul class="menu">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'customerpage' %}">Booking</a></li>
+          <li><a href="{% url 'home' %}">Contact</a></li>
+
+      </ul>   
+</nav>
+
+
+{% endblock %}

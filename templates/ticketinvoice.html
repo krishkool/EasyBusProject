@@ -1,0 +1,41 @@
+{% extends 'dashboard.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="alert alert-dark" style="text-align: center; font-size: 30px; letter-spacing: 0.3rem; margin: 0 0 0 3rem;">TICKET INVOICE</div>
+            <div class="row" style="margin-left: 5rem;">  
+                
+                     
+                <div class="col-md-12" style="padding-top: 5rem;"> 
+                    <table class="table table-bordered">
+                        
+                            <tr>
+                                <th>Bus Id</th>
+                                <th>Bus Name</th>
+                                <th>From</th>
+                                <th>To</th>
+                                
+                                <th>Date</th>
+                                <th>Time</th>
+                                
+                            </tr>
+                            {% for i in dataCheck %}
+                            <tr>
+                                <td>{{i.id}}</td>
+                                <td>{{i.bus_name}}</td>
+                                <td>{{i.source}}</td>
+                                <td>{{i.destination}}</td>
+                                
+                                <td>{{i.date}}</td>
+                                <td>{{i.time}}</td>
+                            </tr>
+                            
+                        {% endfor %}
+                        
+                    </table>
+
+                </div></div></div>
+
+    {% endblock %}

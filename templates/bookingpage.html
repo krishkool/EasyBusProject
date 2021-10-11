@@ -1,0 +1,46 @@
+{% extends 'dashboard.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="alert alert-dark" style="text-align: center; font-size: 30px; letter-spacing: 0.3rem; margin: 0 0 0 3rem;">SEARCH BUS</div>
+            <div class="row" style="margin-left: 5rem;">  
+                
+                     
+                <div class="col-md-12" style="padding-top: 5rem;">
+                    <div class="">{{success}}{{error}}</div>
+
+                    <form action="busbooksearch" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+
+                                <select class="form-control" name="source-data">
+                                <option selected disabled = "True">From</option>
+                                {% for data in datas %}
+                                <option>{{data.source}}</option>
+                                {% endfor %}
+                                </select><br>
+
+                                <select class="form-control" name="dest-data">
+                                    <option selected disabled = "True">Destination</option>
+                                    {% for data in datas %}
+                                    <option>{{data.destination}}</option>
+                                    {% endfor %}
+                                </select><br>
+
+
+                                <input type="date" class="form-control" name="date-val" placeholder="">
+                                
+                                <div class="mt-5 text-center"><input type="submit" class="btn btn-success" value="SEARCH"></div>
+                    </form>
+
+                    <div class="">{{errorbook}}</div>
+
+
+                </div>
+            </div>
+</div>
+                            
+{% endblock %}

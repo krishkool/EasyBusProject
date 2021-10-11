@@ -1,0 +1,28 @@
+{% include 'homepage.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="alert alert-danger"><h4>LOG-IN</h4></div>
+    <div class="form-class">
+        <div class="">{{error}}</div>
+        <form  method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="username">Password:</label>
+                <input type="password" name="password" class="form-control">
+            </div>
+            <input type="submit" class="btn btn-primary" value="LOG-IN" style="margin: 0 0 0 1%;">
+            
+        </form>
+    </div>
+    <div>Not an User? <a href = "{% url 'signup' %} ">REGISTER</a></div>
+    
+</div>
+
+{% endblock %}

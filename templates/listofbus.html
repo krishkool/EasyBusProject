@@ -1,0 +1,64 @@
+{% extends 'dashboard.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="alert alert-dark" style="text-align: center; font-size: 30px; letter-spacing: 0.3rem; margin: 0 0 0 3rem;">SEARCH BUS</div>
+            <div class="row" style="margin-left: 5rem;">  
+                
+                     
+                <div class="col-md-12" style="padding-top: 5rem;">
+                    <table class="table table-bordered" style="width: 65rem; margin-top: 3rem;">
+                        <thead>
+                            <tr>
+                                <th>Bus Id</th>
+                                <th>Bus Name</th>
+                                <th>Source</th>
+                                <th>Destination</th>
+                                <th>Price</th>
+                                <th>Seats Available</th>
+                                <th>Departure Time</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for data in busdata %}
+                            <tr>
+                                <td>{{data.id}}</td>
+                                <td>{{data.bus_name}}</td>
+                                <td>{{data.source}}</td>
+                                <td>{{data.destination}}</td>
+                                <td>{{data.price}}</td>
+                                <td>{{data.remaining_seats}}</td>
+                                <td>{{data.time}}</td>
+                                <td>{{data.date}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row" style="margin-left: 5rem;">         
+                <div class="col-md-12" style="padding-top: 5rem;">
+                    <div class="alert alert-dark" style="text-align: center; font-size: 30px; letter-spacing: 0.3rem; margin: 0 0 0 3rem;">BOOK TICKETS</div>
+                    <div class="booking form">
+                        <form method="post" action="booktickets">
+                            {% csrf_token %}
+                        <br>
+                        <label for="bus_id">Bus Id</label>
+                        <input type="text" name="bus-id" class="form-control">
+                        <label for="Select number of Seats">Select Number of Seats</label>
+                        <input type="number" name="bus-seat" class="form-control"><br>
+                        <input type="submit" class="btn btn-danger" value="BOOK">
+                        </form>
+                    </div>
+                    <div>{{noseat}}</div>
+                </div>
+            </div>
+            
+</div>
+
+
+
+{% endblock %}

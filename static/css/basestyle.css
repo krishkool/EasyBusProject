@@ -1,0 +1,65 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+body{
+
+    font-family: Poppins;
+}
+.navbar {
+
+    background: #c96567;
+    height: 25vh;
+}
+.logo {
+
+    height: 125px;
+    width: 125px;
+}
+
+a.navbar-brand span{
+
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+
+}
+
+.menu li{
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 1.5rem 0 0 1.5rem;
+    font-size: 18px;
+    font-weight: 500;
+    justify-content: center;
+    letter-spacing: 0.3rem;
+
+    
+}
+
+.prolog form{
+    display: inline-block;
+}
+.menu li a{
+    color: #def2f1;
+    text-decoration: none;
+    
+}
+
+button.btn.btn-dark{
+
+    margin-left: 1.5rem;
+    font-size: 18px;
+
+
+}
+.admin-login, .stud-login{
+
+    margin: 2rem 8rem;
+}
+
+.row{
+
+    padding-top: 1rem;
+    
+}
